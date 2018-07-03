@@ -74,6 +74,13 @@ module.exports = {
         },
       },
     });
-    document.registerElement(tagName, { prototype: proto });
+
+    if (window.customElements) {
+      window.customElements.define(tagName, { prototype: proto });
+    } else if(document.registerElement) {
+      document.registerElement(tagName, { prototype: proto });
+    } else {
+      throw 'Browser does not support registration of custom elements';
+    }
   },
 };
