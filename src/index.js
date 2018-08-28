@@ -45,6 +45,8 @@ module.exports = {
               shadowRoot.appendChild(styles[i].cloneNode(true));
           }
           shadowRoot.appendChild(mountPoint);
+
+          app.cueInterface = this.cueInterface;
           ReactDOM.render(app, mountPoint, function () {
               appInstance = this;
               callConstructorHook(webComponentInstance);
