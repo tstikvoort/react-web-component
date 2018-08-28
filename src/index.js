@@ -37,6 +37,7 @@ module.exports = {
     const proto = Object.create(HTMLElement.prototype, {
       attachedCallback: {
         value: function() {
+          console.log(this.cueInterface);
           const shadowRoot = this.createShadowRoot();
           const mountPoint = document.createElement('div');
           const styles = getStyleElementsFromReactWebComponentStyleLoader();
